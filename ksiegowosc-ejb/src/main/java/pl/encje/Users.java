@@ -6,11 +6,14 @@ package pl.encje;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -43,7 +46,11 @@ public class Users implements Serializable {
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    private Date regiteredDate;
+    private Date dateOfCreate;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+    private Date dateOfChange;
     
     @Column(nullable = false)
     private short czyus;
@@ -61,6 +68,11 @@ public class Users implements Serializable {
         this.password = DigestUtils.sha512Hex(password);
         this.email = email;
     }
+    
+    //Join
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_users_address")
+    private UsersAddress usersAddress;
     
     
     //Methods
@@ -96,12 +108,20 @@ public class Users implements Serializable {
         this.email = email;
     }
 
-    public Date getRegiteredDate() {
-        return regiteredDate;
+    public Date getDateOfCreate() {
+        return dateOfCreate;
     }
 
-    public void setRegiteredDate(Date regiteredDate) {
-        this.regiteredDate = regiteredDate;
+    public void setDateOfCreate(Date dateOfCreate) {
+        this.dateOfCreate = dateOfCreate;
+    }
+
+    public Date getDateOfChange() {
+        return dateOfChange;
+    }
+
+    public void setDateOfChange(Date dateOfChange) {
+        this.dateOfChange = dateOfChange;
     }
 
     public short getCzyus() {
@@ -111,6 +131,16 @@ public class Users implements Serializable {
     public void setCzyus(short czyus) {
         this.czyus = czyus;
     }
+
+    public UsersAddress getUsersAddress() {
+        return usersAddress;
+    }
+
+    public void setUsersAddress(UsersAddress usersAddress) {
+        this.usersAddress = usersAddress;
+    }
+    
+    
     
     
 
