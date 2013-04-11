@@ -63,9 +63,7 @@ public class Users implements Serializable {
     }
     
     
-    
-    
-
+    //Methods
     public Long getId() {
         return id;
     }
@@ -73,6 +71,48 @@ public class Users implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public char getName() {
+        return name;
+    }
+
+    public void setName(char name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public char getEmail() {
+        return email;
+    }
+
+    public void setEmail(char email) {
+        this.email = email;
+    }
+
+    public Date getRegiteredDate() {
+        return regiteredDate;
+    }
+
+    public void setRegiteredDate(Date regiteredDate) {
+        this.regiteredDate = regiteredDate;
+    }
+
+    public short getCzyus() {
+        return czyus;
+    }
+
+    public void setCzyus(short czyus) {
+        this.czyus = czyus;
+    }
+    
+    
 
     @Override
     public int hashCode() {
