@@ -5,12 +5,15 @@
 package pl.encje;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 /**
@@ -28,6 +31,12 @@ public class Province implements Serializable {
     @Size(max = 60)
     @Column(nullable = false)
     private  String name;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfCreate;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfChange;
     
     private short czyus;
 
@@ -47,6 +56,22 @@ public class Province implements Serializable {
         this.name = name;
     }
 
+    public Date getDateOfCreate() {
+        return dateOfCreate;
+    }
+
+    public void setDateOfCreate(Date dateOfCreate) {
+        this.dateOfCreate = dateOfCreate;
+    }
+
+    public Date getDateOfChange() {
+        return dateOfChange;
+    }
+
+    public void setDateOfChange(Date dateOfChange) {
+        this.dateOfChange = dateOfChange;
+    }
+    
     public short getCzyus() {
         return czyus;
     }
@@ -56,7 +81,6 @@ public class Province implements Serializable {
     }
     
     
-
     @Override
     public int hashCode() {
         int hash = 0;

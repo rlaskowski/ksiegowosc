@@ -13,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -70,7 +70,7 @@ public class Users implements Serializable {
     }
     
     //Join
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_users_address")
     private UsersAddress usersAddress;
     

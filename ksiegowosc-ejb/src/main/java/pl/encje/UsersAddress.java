@@ -2,14 +2,18 @@
 package pl.encje;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
 /**
@@ -35,6 +39,14 @@ public class UsersAddress implements Serializable {
     @Size(max = 10)
     private char zip;
     
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+    private Date dateOfCreate;
+    
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfChange;
+    
     private short czyus;
     
     //Constructors
@@ -51,7 +63,7 @@ public class UsersAddress implements Serializable {
     }
     
     //Join
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "province_id")
     private Province province;
     
@@ -97,6 +109,22 @@ public class UsersAddress implements Serializable {
         this.zip = zip;
     }
 
+    public Date getDateOfCreate() {
+        return dateOfCreate;
+    }
+
+    public void setDateOfCreate(Date dateOfCreate) {
+        this.dateOfCreate = dateOfCreate;
+    }
+
+    public Date getDateOfChange() {
+        return dateOfChange;
+    }
+
+    public void setDateOfChange(Date dateOfChange) {
+        this.dateOfChange = dateOfChange;
+    }
+    
     public short getCzyus() {
         return czyus;
     }
@@ -104,11 +132,6 @@ public class UsersAddress implements Serializable {
     public void setCzyus(short czyus) {
         this.czyus = czyus;
     }
-    
-    
-    
-    
-    
     
 
     @Override
