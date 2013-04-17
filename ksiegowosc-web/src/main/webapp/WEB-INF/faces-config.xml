@@ -3,15 +3,31 @@
 <!-- =========== FULL CONFIGURATION FILE ================================== -->
 
 <faces-config version="2.0"
-    xmlns="http://java.sun.com/xml/ns/javaee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
-<application>
-    <resource-bundle>
-        <base-name>pl.messages.messages_pl</base-name>
-        <var>msgs</var>
-    </resource-bundle>
-</application>
+    <application>
+        <resource-bundle>
+            <base-name>pl.messages.messages_pl</base-name>
+            <var>msgs</var>
+        </resource-bundle>
+    </application>
 
+    <!-- ==========NAVIGATION =============== -->
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>contractors</from-outcome>
+            <to-view-id>/contractor/listOfPartners.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+    <!-- ========= END NAVIGATION =============== -->
+    
 </faces-config>

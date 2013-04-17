@@ -10,7 +10,13 @@
     <h:body>
         <ui:composition>
             <h:form>
-                <h:outputLabel value="Tutaj będzie nagłówek"/>
+                <ace:menuBar>
+                    <ace:menuItem value="#{msgs.heading_1}" action="contractors"/>
+                    <ace:menuItem value="#{msgs.heading_2}"/>
+                    <ace:menuItem value="#{msgs.heading_3}"/>
+                    <ace:menuItem value="#{msgs.heading_4}"/>
+                    <ace:menuItem value="#{msgs.heading_5}"/>
+                </ace:menuBar>
             </h:form>
         </ui:composition>
     </h:body>
