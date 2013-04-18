@@ -22,7 +22,14 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
-
+    <navigation-rule>
+        <from-view-id>/contractor/listOfPartners.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>contractor</from-outcome>
+            <to-view-id>/contractor/contractor.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 
 
 

@@ -15,6 +15,10 @@
     text-decoration: underline;
 }
 
+.tabContractor {
+    margin-top: 20px;
+}
+
 #content {
     position: relative; 
     margin: 0px auto 0px;

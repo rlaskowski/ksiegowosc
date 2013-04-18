@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/mainTemplate.xhtml">
+
+            <ui:define name="content">
+                <ace:tabSet clientSide="false" styleClass="tabContractor">
+                    <ace:tabPane>
+                        <f:facet name="label">#{msgs.contractorTab_1}</f:facet>
+                    </ace:tabPane>
+                    <ace:tabPane>
+                        <f:facet name="label">#{msgs.contractorTab_2}</f:facet>
+                    </ace:tabPane>
+                    <ace:tabPane>
+                        <f:facet name="label">#{msgs.contractorTab_3}</f:facet>
+                    </ace:tabPane>
+                </ace:tabSet>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
