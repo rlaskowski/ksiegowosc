@@ -1,14 +1,31 @@
 
 #top {
-/*    position: relative;
-    background-color: #036fab;
-    color: white;
-    padding: 5px;
-    margin: 0px 0px 10px 0px;*/
+    position: relative;
+    margin: 5px auto 0px;
+    width: 1025px;
 }
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  text-decoration : underline;
+}
+
 .upperSubmenu {
-    float: left;
-    color: #000000;
+    border: 0;
+    text-decoration: underline;
+}
+
+#content {
+    position: relative; 
+    margin: 0px auto 0px;
+    width: 1025px;
+}
+
+
+#bottom {
+    position: relative; 
+    margin: 3px auto 0px;
+    width: 1025px;
 }
 
 /*#bottom {
