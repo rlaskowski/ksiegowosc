@@ -3,16 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
 
     <body>
 
         <ui:composition template="./../resources/templates/mainTemplate.xhtml">
 
             <ui:define name="content">
+                
                 <ace:tabSet clientSide="false" styleClass="tabContractor">
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_1}</f:facet>
+                        <h:panelGrid columns="1" width="100%">
+                        <ace:textEntry label="#{msgs.contractorLabel_1}" labelPosition="left"/>
+                        <ace:textEntry label="#{msgs.contractorLabel_2}" labelPosition="left"/>
+                        <ace:textEntry label="#{msgs.contractorLabel_3}" labelPosition="left"/>
+                        <ace:textEntry label="#{msgs.contractorLabel_4}" labelPosition="left"/>
+                        <ace:checkboxButton />
+                        </h:panelGrid>
                     </ace:tabPane>
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_2}</f:facet>
