@@ -2,7 +2,6 @@
 package pl.encje;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,19 +11,20 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author r.laskowski
+ * @author Rafał
  */
 @Entity
-@SequenceGenerator(sequenceName = "province_seq",name = "province_seq")
-public class Province implements Serializable {
+@SequenceGenerator(name = "phone_seq",sequenceName = "phone_seq",allocationSize = 100000000)
+public class Phone implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "province_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "phone_seq")
     private Long id;
     
-    @Size(max = 60)
-    @Column(nullable = false)
-    private  String name;
+    @Size(max = 20)
+    private char number;
+    
+    private short type;
     
     private short czyus;
 
@@ -36,14 +36,22 @@ public class Province implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public char getNumber() {
+        return number;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(char number) {
+        this.number = number;
     }
-    
+
+    public short getType() {
+        return type;
+    }
+
+    public void setType(short type) {
+        this.type = type;
+    }
+
     public short getCzyus() {
         return czyus;
     }
@@ -53,6 +61,7 @@ public class Province implements Serializable {
     }
     
     
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -62,11 +71,11 @@ public class Province implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        
-        if (!(object instanceof Province)) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Phone)) {
             return false;
         }
-        Province other = (Province) object;
+        Phone other = (Phone) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -75,7 +84,7 @@ public class Province implements Serializable {
 
     @Override
     public String toString() {
-        return "pl.encje.StateAddress[ id=" + id + " ]";
+        return "pl.encje.Phone[ id=" + id + " ]";
     }
     
 }

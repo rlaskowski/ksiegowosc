@@ -27,7 +27,16 @@ import javax.validation.constraints.Size;
 public class Contractor implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    private List<Address> idContractor = new ArrayList<Address>();
+    //Join
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_contractor")
+    private List<Address> idConAddress = new ArrayList<Address>();
+    
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_contractor")
+    private List<Phone> idConPhone = new ArrayList<Phone>();
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "contractor_seq")
     private Long id;
@@ -45,18 +54,7 @@ public class Contractor implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfChange;
     
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_contractor")
-    public List<Address> getIdContractor()
-    {
-        return idContractor;
-    }
-    
-    public void setIdContractor(List<Address> idContractor)
-    {
-        this.idContractor = idContractor;
-    }
-    
+ 
     private short czyus;
     
 
@@ -91,6 +89,26 @@ public class Contractor implements Serializable {
     public void setDateOfChange(Date dateOfChange) {
         this.dateOfChange = dateOfChange;
     }
+    
+    public List<Address> getIdConAddress()
+    {
+        return idConAddress;
+    }
+    
+    public void setIdConAddress(List<Address> idConAddress)
+    {
+        this.idConAddress = idConAddress;
+    }
+    
+    public List<Phone> getIdConPhone()
+    {
+        return idConPhone;
+    }
+    
+    public void setIdConPhone(List<Phone> idConPhone)
+    {
+        this.idConPhone = idConPhone;
+    }
 
     public short getCzyus() {
         return czyus;
@@ -111,7 +129,7 @@ public class Contractor implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
+        
         if (!(object instanceof Contractor)) {
             return false;
         }
