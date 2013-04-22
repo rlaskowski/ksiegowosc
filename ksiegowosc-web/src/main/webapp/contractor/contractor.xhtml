@@ -12,15 +12,16 @@
 
             <ui:define name="content">
                 
-                <ace:tabSet clientSide="false" styleClass="tabContractor">
+                <ace:tabSet clientSide="true" styleClass="tabContractor">
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_1}</f:facet>
-                        <h:panelGrid columns="1" width="100%">
-                        <ace:textEntry label="#{msgs.contractorLabel_1}" labelPosition="left"/>
-                        <ace:textEntry label="#{msgs.contractorLabel_2}" labelPosition="left"/>
-                        <ace:textEntry label="#{msgs.contractorLabel_3}" labelPosition="left"/>
-                        <ace:textEntry label="#{msgs.contractorLabel_4}" labelPosition="left"/>
-                        <ace:checkboxButton />
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{msgs.contractorLabel_1}"/><ace:textEntry />
+                            <h:outputLabel value="#{msgs.contractorLabel_2}"/><ace:textEntry />
+                            <h:outputLabel value="#{msgs.contractorLabel_3}"/><ace:textEntry />
+                            <h:outputLabel value="#{msgs.contractorLabel_4}"/><ace:textEntry />
+                            <h:outputLabel value="#{msgs.contractorLabel_5}"/><ace:checkboxButton/>
+                            <h:outputLabel value="#{msgs.contractorLabel_6}"/><ace:checkboxButton/>
                         </h:panelGrid>
                     </ace:tabPane>
                     <ace:tabPane>
