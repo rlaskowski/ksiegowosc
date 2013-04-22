@@ -72,7 +72,7 @@ public class Users implements Serializable {
     //Join
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_users_address")
-    private UsersAddress usersAddress;
+    private Address usersAddress;
     
     
     //Methods
@@ -132,11 +132,11 @@ public class Users implements Serializable {
         this.czyus = czyus;
     }
 
-    public UsersAddress getUsersAddress() {
+    public Address getUsersAddress() {
         return usersAddress;
     }
 
-    public void setUsersAddress(UsersAddress usersAddress) {
+    public void setUsersAddress(Address usersAddress) {
         this.usersAddress = usersAddress;
     }
     

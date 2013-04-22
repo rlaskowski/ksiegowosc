@@ -21,13 +21,13 @@ import javax.validation.constraints.Size;
  * @author r.laskowski
  */
 @Entity
-@SequenceGenerator(sequenceName = "users_address_seq",name="users_address_seq",allocationSize = 100000000)
-public class UsersAddress implements Serializable {
+@SequenceGenerator(sequenceName = "address_seq",name="address_seq",allocationSize = 100000000)
+public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     
    
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "users_address_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "address_seq")
     private Long id;
     
     @Size(max = 120)
@@ -38,6 +38,8 @@ public class UsersAddress implements Serializable {
     
     @Size(max = 10)
     private char zip;
+    
+    
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
@@ -50,12 +52,12 @@ public class UsersAddress implements Serializable {
     private short czyus;
     
     //Constructors
-    public UsersAddress()
+    public Address()
     {
         
     }
     
-    public UsersAddress(char city, char street, char zip)
+    public Address(char city, char street, char zip)
     {
         this.city = city;
         this.street = street;
@@ -143,11 +145,11 @@ public class UsersAddress implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UsersAddress)) {
+     
+        if (!(object instanceof Address)) {
             return false;
         }
-        UsersAddress other = (UsersAddress) object;
+        Address other = (Address) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

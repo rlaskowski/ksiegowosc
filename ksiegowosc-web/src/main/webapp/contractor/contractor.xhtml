@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
@@ -28,9 +29,26 @@
                     </ace:tabPane>
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_2}</f:facet>
+                        
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{msgs.contractorLabel_7}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_8}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_9}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_10}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_11}"/><ice:selectOneMenu/>
+                        </h:panelGrid>
                     </ace:tabPane>
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_3}</f:facet>
+                    </ace:tabPane>
+                    <ace:tabPane>
+                        <f:facet name="label">#{msgs.contractorTab_4}</f:facet>
+                        
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{msgs.contractorLabel_12}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_13}"/><ace:textEntry/>
+                       </h:panelGrid>
+                        
                     </ace:tabPane>
                 </ace:tabSet>
                 
