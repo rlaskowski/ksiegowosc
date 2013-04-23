@@ -24,6 +24,12 @@ public class Phone implements Serializable {
     @Size(max = 20)
     private char number;
     
+    @Size(max = 60)
+    private char name;
+    
+    @Size(max = 60)
+    private char surname;
+    
     private short type;
     
     private short czyus;
@@ -44,6 +50,22 @@ public class Phone implements Serializable {
         this.number = number;
     }
 
+    public char getName() {
+        return name;
+    }
+
+    public void setName(char name) {
+        this.name = name;
+    }
+
+    public char getSurname() {
+        return surname;
+    }
+
+    public void setSurname(char surname) {
+        this.surname = surname;
+    }
+    
     public short getType() {
         return type;
     }

@@ -12,7 +12,7 @@
         <ui:composition template="./../resources/templates/mainTemplate.xhtml">
 
             <ui:define name="content">
-                
+
                 <ace:tabSet clientSide="true" styleClass="tabContractor">
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_1}</f:facet>
@@ -29,7 +29,7 @@
                     </ace:tabPane>
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_2}</f:facet>
-                        
+
                         <h:panelGrid columns="2">
                             <h:outputLabel value="#{msgs.contractorLabel_7}"/><ace:textEntry/>
                             <h:outputLabel value="#{msgs.contractorLabel_8}"/><ace:textEntry/>
@@ -40,18 +40,46 @@
                     </ace:tabPane>
                     <ace:tabPane>
                         <f:facet name="label">#{msgs.contractorTab_3}</f:facet>
-                    </ace:tabPane>
-                    <ace:tabPane>
-                        <f:facet name="label">#{msgs.contractorTab_4}</f:facet>
                         
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="#{msgs.contractorLabel_12}"/><ace:textEntry/>
-                            <h:outputLabel value="#{msgs.contractorLabel_13}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_14}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_15}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_16}"/><ice:selectOneMenu/>
+                            <h:outputLabel value="#{msgs.contractorLabel_17}"/><ace:textEntry/>
                        </h:panelGrid>
                         
                     </ace:tabPane>
+                    <ace:tabPane>
+                        <f:facet name="label">#{msgs.contractorTab_4}</f:facet>
+
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="#{msgs.contractorLabel_12}"/><ace:textEntry/>
+                            <h:outputLabel value="#{msgs.contractorLabel_13}"/><ace:textEntry/>
+                        </h:panelGrid>
+
+                        <h:form>
+                            <ice:dataTable>
+                                <ice:column>
+                                    <f:facet name="header">#{msgs.columnTContractor_1}</f:facet>
+                                </ice:column>
+                                <ice:column>
+                                    <f:facet name="header">#{msgs.columnTContractor_8}</f:facet>
+                                </ice:column>
+                                <ice:column>
+                                    <f:facet name="header">#{msgs.columnTContractor_5}</f:facet>
+                                </ice:column>
+                                <ice:column>
+                                    <f:facet name="header">#{msgs.columnTContractor_6}</f:facet>
+                                </ice:column>
+                                <ice:column>
+                                    <f:facet name="header">#{msgs.columnTContractor_7}</f:facet>
+                                </ice:column>
+                            </ice:dataTable>
+                        </h:form>
+
+                    </ace:tabPane>
                 </ace:tabSet>
-                
+
             </ui:define>
 
         </ui:composition>
