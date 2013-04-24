@@ -6,6 +6,7 @@
     <class>pl.encje.UsersAddress</class>
     <class>pl.encje.Province</class>
     <class>pl.encje.Users</class>
+    <class>pl.entity.ConFinance</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>

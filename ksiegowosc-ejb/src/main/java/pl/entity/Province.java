@@ -1,7 +1,8 @@
 
-package pl.encje;
+package pl.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,26 +12,19 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Rafał
+ * @author r.laskowski
  */
 @Entity
-@SequenceGenerator(name = "phone_seq",sequenceName = "phone_seq",allocationSize = 100000000)
-public class Phone implements Serializable {
+@SequenceGenerator(sequenceName = "province_seq",name = "province_seq")
+public class Province implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "phone_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "province_seq")
     private Long id;
     
-    @Size(max = 20)
-    private char number;
-    
     @Size(max = 60)
-    private char name;
-    
-    @Size(max = 60)
-    private char surname;
-    
-    private short type;
+    @Column(nullable = false)
+    private  String name;
     
     private short czyus;
 
@@ -42,38 +36,14 @@ public class Phone implements Serializable {
         this.id = id;
     }
 
-    public char getNumber() {
-        return number;
-    }
-
-    public void setNumber(char number) {
-        this.number = number;
-    }
-
-    public char getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(char name) {
+    public void setName(String name) {
         this.name = name;
     }
-
-    public char getSurname() {
-        return surname;
-    }
-
-    public void setSurname(char surname) {
-        this.surname = surname;
-    }
     
-    public short getType() {
-        return type;
-    }
-
-    public void setType(short type) {
-        this.type = type;
-    }
-
     public short getCzyus() {
         return czyus;
     }
@@ -83,7 +53,6 @@ public class Phone implements Serializable {
     }
     
     
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -93,11 +62,11 @@ public class Phone implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Phone)) {
+        
+        if (!(object instanceof Province)) {
             return false;
         }
-        Phone other = (Phone) object;
+        Province other = (Province) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -106,7 +75,7 @@ public class Phone implements Serializable {
 
     @Override
     public String toString() {
-        return "pl.encje.Phone[ id=" + id + " ]";
+        return "pl.encje.StateAddress[ id=" + id + " ]";
     }
     
 }

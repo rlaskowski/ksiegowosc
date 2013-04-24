@@ -1,10 +1,11 @@
-
-package pl.encje;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pl.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,52 +13,69 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
- * @author r.laskowski
+ * @author Rafał
  */
 @Entity
-@SequenceGenerator(name = "contractor_seq",sequenceName = "contractor_seq",allocationSize = 100000000)
-public class Contractor implements Serializable {
+@SequenceGenerator(sequenceName = "users_seq",name = "users_seq",allocationSize = 100000000)
+public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
-    
-    //Join
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_contractor")
-    private List<Address> idConAddress = new ArrayList<Address>();
-    
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_contractor")
-    private List<Phone> idConPhone = new ArrayList<Phone>();
-    
-    
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "contractor_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "users_seq")
     private Long id;
     
-    @Size(max = 120)
+    @Size(max = 255)
     @Column(nullable = false)
     private char name;
     
+    @Size(max = 255)
+    @Column(nullable = false)
+    private String password;
+    
+    @Size(max = 60)
+    @Column(nullable = false)
+    private char email;
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private Date dateOfCreate;
     
-    @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
     private Date dateOfChange;
     
- 
+    @Column(nullable = false)
     private short czyus;
     
-
+    
+    //Contructors
+    public Users()
+    {
+        
+    }
+    
+    public Users(char name, String password, char email)
+    {
+        this.name = name;
+        this.password = DigestUtils.sha512Hex(password);
+        this.email = email;
+    }
+    
+    //Join
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_users_address")
+    private Address usersAddress;
+    
+    
+    //Methods
     public Long getId() {
         return id;
     }
@@ -72,6 +90,22 @@ public class Contractor implements Serializable {
 
     public void setName(char name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public char getEmail() {
+        return email;
+    }
+
+    public void setEmail(char email) {
+        this.email = email;
     }
 
     public Date getDateOfCreate() {
@@ -89,26 +123,6 @@ public class Contractor implements Serializable {
     public void setDateOfChange(Date dateOfChange) {
         this.dateOfChange = dateOfChange;
     }
-    
-    public List<Address> getIdConAddress()
-    {
-        return idConAddress;
-    }
-    
-    public void setIdConAddress(List<Address> idConAddress)
-    {
-        this.idConAddress = idConAddress;
-    }
-    
-    public List<Phone> getIdConPhone()
-    {
-        return idConPhone;
-    }
-    
-    public void setIdConPhone(List<Phone> idConPhone)
-    {
-        this.idConPhone = idConPhone;
-    }
 
     public short getCzyus() {
         return czyus;
@@ -117,6 +131,16 @@ public class Contractor implements Serializable {
     public void setCzyus(short czyus) {
         this.czyus = czyus;
     }
+
+    public Address getUsersAddress() {
+        return usersAddress;
+    }
+
+    public void setUsersAddress(Address usersAddress) {
+        this.usersAddress = usersAddress;
+    }
+    
+    
     
     
 
@@ -129,11 +153,11 @@ public class Contractor implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        
-        if (!(object instanceof Contractor)) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Users)) {
             return false;
         }
-        Contractor other = (Contractor) object;
+        Users other = (Users) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -142,7 +166,7 @@ public class Contractor implements Serializable {
 
     @Override
     public String toString() {
-        return "pl.encje.Contractors[ id=" + id + " ]";
+        return "pl.encje.Users[ id=" + id + " ]";
     }
     
 }

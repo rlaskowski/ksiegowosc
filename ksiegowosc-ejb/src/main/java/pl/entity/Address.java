@@ -1,8 +1,10 @@
 
-package pl.encje;
+package pl.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +27,12 @@ import javax.validation.constraints.Size;
 public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     
+    
+    //Join
+    @OneToOne()
+    @JoinColumn(name = "id_province")
+    private Province province;
+    
    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "address_seq")
@@ -38,6 +46,9 @@ public class Address implements Serializable {
     
     @Size(max = 10)
     private char zip;
+    
+    @Size(max = 120)
+    private char post;
     
     
     
@@ -63,12 +74,6 @@ public class Address implements Serializable {
         this.street = street;
         this.zip = zip;
     }
-    
-    //Join
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "province_id")
-    private Province province;
-    
     
     //Methods
     public Long getId() {
@@ -111,6 +116,14 @@ public class Address implements Serializable {
         this.zip = zip;
     }
 
+    public char getPost() {
+        return post;
+    }
+
+    public void setPost(char post) {
+        this.post = post;
+    }
+   
     public Date getDateOfCreate() {
         return dateOfCreate;
     }
