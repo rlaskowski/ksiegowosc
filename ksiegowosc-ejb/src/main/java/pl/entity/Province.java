@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
  * @author r.laskowski
  */
 @Entity
-@SequenceGenerator(sequenceName = "province_seq",name = "province_seq")
+@SequenceGenerator(sequenceName = "province_seq",name = "province_seq",allocationSize = 1)
 public class Province implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -26,7 +26,9 @@ public class Province implements Serializable {
     @Column(nullable = false)
     private  String name;
     
-    private short czyus;
+    @Column(nullable = false)
+    private short code;
+    
 
     public Long getId() {
         return id;
@@ -43,14 +45,17 @@ public class Province implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public short getCzyus() {
-        return czyus;
+
+    public short getCode() {
+        return code;
     }
 
-    public void setCzyus(short czyus) {
-        this.czyus = czyus;
+    public void setCode(short code) {
+        this.code = code;
     }
+    
+    
+    
     
     
     @Override

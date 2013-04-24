@@ -18,9 +18,9 @@
                         <f:facet name="label">#{msgs.contractorTab_1}</f:facet>
 
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="#{msgs.contractorLabel_1}"/><ace:textEntry />
-                            <h:outputLabel value="#{msgs.contractorLabel_2}"/><ace:textEntry />
-                            <h:outputLabel value="#{msgs.contractorLabel_3}"/><ace:textEntry />
+                            <h:outputLabel value="#{msgs.contractorLabel_1}"/><ace:textEntry value="#{contractor.name}"/>
+                            <h:outputLabel value="#{msgs.contractorLabel_2}"/><ace:textEntry value="#{contractor.shortName}"/>
+                            <h:outputLabel value="#{msgs.contractorLabel_3}"/><ace:textEntry value="#{contractor.nip}"/>
                             <h:outputLabel value="#{msgs.contractorLabel_4}"/><ace:textEntry />
                             <h:outputLabel value="#{msgs.contractorLabel_5}"/><h:selectBooleanCheckbox/>
                             <h:outputLabel value="#{msgs.contractorLabel_6}"/><h:selectBooleanCheckbox/>

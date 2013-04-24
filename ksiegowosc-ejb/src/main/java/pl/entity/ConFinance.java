@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
  * @author r.laskowski
  */
 @Entity
-@SequenceGenerator(name = "con_finance_seq",sequenceName = "con_finance_seq",allocationSize = 100000000)
+@SequenceGenerator(name = "con_finance_seq",sequenceName = "con_finance_seq",allocationSize = 1)
 public class ConFinance implements Serializable {
     private static final long serialVersionUID = 1L;
     

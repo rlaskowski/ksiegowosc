@@ -23,7 +23,7 @@ import javax.validation.constraints.Size;
  * @author r.laskowski
  */
 @Entity
-@SequenceGenerator(name = "contractor_seq",sequenceName = "contractor_seq",allocationSize = 100000000)
+@SequenceGenerator(name = "contractor_seq",sequenceName = "contractor_seq",allocationSize = 1)
 public class Contractor implements Serializable {
     private static final long serialVersionUID = 1L;
     

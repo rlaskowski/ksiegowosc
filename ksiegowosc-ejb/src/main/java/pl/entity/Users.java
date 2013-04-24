@@ -25,7 +25,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author Rafał
  */
 @Entity
-@SequenceGenerator(sequenceName = "users_seq",name = "users_seq",allocationSize = 100000000)
+@SequenceGenerator(sequenceName = "users_seq",name = "users_seq",allocationSize = 1)
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -23,14 +23,14 @@ import javax.validation.constraints.Size;
  * @author r.laskowski
  */
 @Entity
-@SequenceGenerator(sequenceName = "address_seq",name="address_seq",allocationSize = 100000000)
+@SequenceGenerator(sequenceName = "address_seq",name="address_seq",allocationSize = 1)
 public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     
     
     //Join
     @OneToOne()
-    @JoinColumn(name = "id_province")
+    @JoinColumn(name = "code_province")
     private Province province;
     
    

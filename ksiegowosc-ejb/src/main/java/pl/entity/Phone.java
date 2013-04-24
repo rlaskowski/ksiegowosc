@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
  * @author Rafał
  */
 @Entity
-@SequenceGenerator(name = "phone_seq",sequenceName = "phone_seq",allocationSize = 100000000)
+@SequenceGenerator(name = "phone_seq",sequenceName = "phone_seq",allocationSize = 1)
 public class Phone implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
