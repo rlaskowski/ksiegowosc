@@ -46,9 +46,40 @@ public class ConFinance implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
 
+    public char getBankAccount() {
+        return bankAccount;
+    }
+
+    public void setBankAccount(char bankAccount) {
+        this.bankAccount = bankAccount;
+    }
+
+    public char getNameBank() {
+        return nameBank;
+    }
+
+    public void setNameBank(char nameBank) {
+        this.nameBank = nameBank;
+    }
+
+    public short getMethodOfPayment() {
+        return methodOfPayment;
+    }
+
+    public void setMethodOfPayment(short methodOfPayment) {
+        this.methodOfPayment = methodOfPayment;
+    }
+
+    public int getTermOfPayments() {
+        return termOfPayments;
+    }
+
+    public void setTermOfPayments(int termOfPayments) {
+        this.termOfPayments = termOfPayments;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
