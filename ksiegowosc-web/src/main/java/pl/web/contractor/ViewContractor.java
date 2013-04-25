@@ -2,13 +2,14 @@
 package pl.web.contractor;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.model.SelectItem;
 import javax.inject.Named;
+import javax.persistence.Query;
 import pl.ejb.contractor.ModProvince;
+import pl.entity.Province;
 
 /**
  *
@@ -20,21 +21,15 @@ import pl.ejb.contractor.ModProvince;
 public class ViewContractor implements Serializable{
     
     
-     //EJB DI
     @EJB
     private ModProvince modProvince;
     
-    
-  
-    private Map<String,Integer> provinceItems;
-    
+    private List<SelectItem> provinceList = new ArrayList<SelectItem>();
+    private Province province;
     private String name;
-    
     private String shortName;
-    
     private String nip;
     
-    private String province;
     
 
     public String getName() {
@@ -61,21 +56,32 @@ public class ViewContractor implements Serializable{
         this.nip = nip;
     }
     
-     public Map<String,Integer> getProvince()
+    public Province getProvince()
     {
-        return provinceItems;
+        return province;
     }
     
-    //Select One Menu List
-    //Province
-    public Map<String,Integer> getProvinceItems()
+    public void setProvince(Province province)
     {
-        provinceItems = new TreeMap<String,Integer>();
-        provinceItems.put
-        
-        return provinceItems;
-        
+        this.province = province;
     }
+    
+    public List<SelectItem> getProvinceList()
+    {
+        
+        for(Object p : modProvince.getProvinceList())
+        {
+            provinceList.add(new SelectItem(p, p.toString()));
+        }
+        
+        return provinceList;
+    }
+    
+    
+   
+    
+ 
+
     
    
  
