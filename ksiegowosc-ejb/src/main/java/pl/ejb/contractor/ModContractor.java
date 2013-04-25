@@ -13,8 +13,7 @@ import pl.entity.Contractor;
 @Stateless
 public class ModContractor {
     
-    @PersistenceContext
-    private EntityManager em;
+   
     
     
     

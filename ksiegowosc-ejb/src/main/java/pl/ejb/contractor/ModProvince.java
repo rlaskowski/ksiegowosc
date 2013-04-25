@@ -1,13 +1,13 @@
 
 package pl.ejb.contractor;
 
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import pl.entity.Province;
 
 /**
  *
@@ -16,26 +16,19 @@ import javax.persistence.Query;
 @Stateless
 @LocalBean
 public class ModProvince {
-
+    
     @PersistenceContext
     private EntityManager em;
     
-    
-    
-    
-    //GET Province list
-    public Map<String,Integer> getProvinceList()
+    public List<Province> getProvinceList()
     {
-       
-        Query q = em.createQuery("SELECT p.name, p.code FROM Province p");
+        Query q = em.createNamedQuery("Province.all");
         
-        
-        return list;
-            
-            
-        
-        
-        
+        return q.getResultList();
     }
+
+    
+     
+    
 
 }

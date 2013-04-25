@@ -7,8 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -16,6 +17,12 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @SequenceGenerator(sequenceName = "province_seq",name = "province_seq",allocationSize = 1)
+@NamedQueries(
+        {
+            @NamedQuery(name = "Province.all", query = "SELECT p.name, p.code FROM Province p")
+        }        
+        
+)
 public class Province implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
