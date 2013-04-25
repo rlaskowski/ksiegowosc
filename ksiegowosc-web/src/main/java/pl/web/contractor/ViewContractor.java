@@ -2,7 +2,9 @@
 package pl.web.contractor;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -18,19 +20,21 @@ import pl.ejb.contractor.ModProvince;
 public class ViewContractor implements Serializable{
     
     
-    //EJB DI
+     //EJB DI
     @EJB
     private ModProvince modProvince;
     
     
-   
-    private static Map<String,Integer> provinceItems;
+  
+    private Map<String,Integer> provinceItems;
     
     private String name;
     
     private String shortName;
     
     private String nip;
+    
+    private String province;
     
 
     public String getName() {
@@ -57,17 +61,24 @@ public class ViewContractor implements Serializable{
         this.nip = nip;
     }
     
-    public Map<String,Integer> getProvinceItems()
+     public Map<String,Integer> getProvince()
     {
         return provinceItems;
     }
     
     //Select One Menu List
     //Province
-    public void getProvinceList()
+    public Map<String,Integer> getProvinceItems()
     {
+        provinceItems = new TreeMap<String,Integer>();
+        provinceItems.put
+        
+        return provinceItems;
         
     }
+    
+   
+ 
     
   
     

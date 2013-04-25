@@ -22,8 +22,8 @@ public class Province implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "province_seq")
     private Long id;
     
-    @Size(max = 60)
-    @Column(nullable = false)
+  
+    @Column(nullable = false,length = 60)
     private  String name;
     
     @Column(nullable = false)
