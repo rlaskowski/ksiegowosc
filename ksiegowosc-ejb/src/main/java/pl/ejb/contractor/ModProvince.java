@@ -20,10 +20,11 @@ public class ModProvince {
     @PersistenceContext
     private EntityManager em;
     
-    public List<Province> getProvinceList()
+    public List getProvinceList()
     {
         Query q = em.createNamedQuery("Province.all");
         
+       
         return q.getResultList();
     }
 

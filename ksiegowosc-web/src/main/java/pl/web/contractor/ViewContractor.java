@@ -5,9 +5,7 @@ import java.io.Serializable;
 import java.util.*;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.model.SelectItem;
 import javax.inject.Named;
-import javax.persistence.Query;
 import pl.ejb.contractor.ModProvince;
 import pl.entity.Province;
 
@@ -24,8 +22,8 @@ public class ViewContractor implements Serializable{
     @EJB
     private ModProvince modProvince;
     
-    private List<SelectItem> provinceList = new ArrayList<SelectItem>();
-    private Province province;
+    private Map<String,Short> provinceList = new TreeMap<String,Short>();
+    private String provinceName;
     private String name;
     private String shortName;
     private String nip;
@@ -56,25 +54,35 @@ public class ViewContractor implements Serializable{
         this.nip = nip;
     }
     
-    public Province getProvince()
+    public String getProvinceName()
     {
-        return province;
+        return provinceName;
     }
     
-    public void setProvince(Province province)
+    public void setProvinceName(String provinceName)
     {
-        this.province = province;
+        this.provinceName = provinceName;
     }
     
-    public List<SelectItem> getProvinceList()
+    public Map<String,Short> getProvinceList()
     {
+        Iterator iter = modProvince.getProvinceList().iterator();
         
-        for(Object p : modProvince.getProvinceList())
+        while(iter.hasNext())
         {
-            provinceList.add(new SelectItem(p, p.toString()));
+            Object[] o = (Object[])iter.next();
+            
+            String nameProvince = (String)o[0];
+            Short codeProvince = (Short)o[1];
+         
+            
+            provinceList.put(nameProvince,codeProvince);
+            
+            
         }
         
         return provinceList;
+        
     }
     
     
